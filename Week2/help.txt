@@ -8,6 +8,13 @@
     docker exec -it namenode bash
 5) Выполнение команд в HDFS
     ...
+6) Запуск MapReduce (Java)
+    hadoop jar /job/mr-wordcount.jar org.apache.hadoop.examples.WordCount /input /output
+7) Выход из контейнера
     exit
-6) Остановка контейнеров
+8) Остановка контейнеров
     docker-compose down
+ВАЖНО!
+9) После остановки контейнеров выполните команду:
+    docker system prune —volumes
+   И выбирете Yes(Y) для удаления метаинформации кластера.
