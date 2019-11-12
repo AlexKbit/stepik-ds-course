@@ -17,5 +17,5 @@
     docker-compose down
 ВАЖНО!
 9) После остановки контейнеров выполните команду:
-    docker system prune —volumes
+    docker system prune —-volumes
    И выбирете Yes(Y) для удаления метаинформации кластера.
