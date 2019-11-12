@@ -1,0 +1,11 @@
+Выполнять из папки Week4/Airflow
+1) Запуск контейнеров
+    docker-compose up -d
+2) Проверка запущенных контейнеров
+    docker ps
+3) UI Airflow
+    http://localhost:8080
+4) DAGs которые подгружаются в Airflow Week4/Airflow/container-data/airflow/dags
+   Вы можете менять их или добавлять свои не останавливая контейнер
+5) Остановка контейнеров
+    docker-compose down
