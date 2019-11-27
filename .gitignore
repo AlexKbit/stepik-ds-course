@@ -23,3 +23,4 @@
 hs_err_pid*
 .idea
 !/Week2/docker-hadoop/tmp/job/mr-wordcount.jar
+/Week1/Postgres/container-data/postgres/data/
