@@ -26,7 +26,7 @@ def upload(**ctx):
 
 
 dag = DAG(dag_id='calculation-dag',
-          start_date=datetime(2019, 10, 14),
+          start_date=datetime.utcnow(),
           schedule_interval='@once')
 
 load_task = PythonOperator(task_id='load_task',

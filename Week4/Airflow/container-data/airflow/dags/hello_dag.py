@@ -1,5 +1,6 @@
 from datetime import datetime
 from airflow import DAG
+from datetime import datetime
 from airflow.operators.dummy_operator import DummyOperator
 from airflow.operators.python_operator import PythonOperator
 
@@ -21,7 +22,7 @@ def print_hello():
 
 
 dag = DAG('hello-world-dag',
-          start_date=datetime(2019, 10, 14),
+          start_date=datetime.utcnow(),
           catchup=False,
           description='Hello world example',
           schedule_interval='*/2 * * * *')
