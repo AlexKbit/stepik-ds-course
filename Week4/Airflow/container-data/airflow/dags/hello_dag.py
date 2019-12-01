@@ -1,8 +1,8 @@
 from datetime import datetime
-from airflow import DAG
+from airflow import DAG, AirflowException
 from datetime import datetime
-from airflow.operators.dummy_operator import DummyOperator
 from airflow.operators.python_operator import PythonOperator
+from airflow.utils.trigger_rule import TriggerRule
 
 
 def print_1():
@@ -10,6 +10,7 @@ def print_1():
 
 
 def print_2():
+    raise AirflowException('Oops!')
     return 'Step 2'
 
 
@@ -22,15 +23,17 @@ def print_hello():
 
 
 dag = DAG('hello-world-dag',
-          start_date=datetime.utcnow(),
-          catchup=False,
+          start_date=datetime(2019, 11, 30),
           description='Hello world example',
           schedule_interval='*/2 * * * *')
 
 step1 = PythonOperator(task_id='step1', python_callable=print_1, dag=dag)
 step2 = PythonOperator(task_id='step2', python_callable=print_2, dag=dag)
 step3 = PythonOperator(task_id='step3', python_callable=print_3, dag=dag)
-hello_operator = PythonOperator(task_id='hello_task', python_callable=print_hello, dag=dag)
+hello_operator = PythonOperator(task_id='hello_task',
+                                python_callable=print_hello,
+                                dag=dag,
+                                trigger_rule=TriggerRule.ONE_SUCCESS)
 
 step1 >> [step2, step3]
 step2 >> hello_operator

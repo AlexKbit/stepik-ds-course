@@ -27,7 +27,7 @@ def plus10(**ctx):
 
 
 def upload1(**ctx):
-    x = ctx['ti'].xcom_pull(key='return_value', task_ids='plus_task')
+    x = ctx['ti'].xcom_pull(key='return_value', task_ids='plus5_task')
     Variable.set('result1', x)
 
 
@@ -37,7 +37,7 @@ def upload2(**ctx):
 
 
 dag = DAG(dag_id='calculation-parallel-dag',
-          start_date=datetime.utcnow(),
+          start_date=datetime(2019, 11, 30),
           schedule_interval='@once')
 
 load_task = PythonOperator(task_id='load_task',

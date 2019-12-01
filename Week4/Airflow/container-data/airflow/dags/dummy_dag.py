@@ -1,11 +1,10 @@
 from datetime import datetime
 from airflow import DAG
-from airflow.operators.python_operator import PythonOperator
 from airflow.operators.dummy_operator import DummyOperator
 
 
 dag = DAG(dag_id='dummy-dag',
-          start_date=datetime.utcnow())
+          start_date=datetime(2019, 11, 30))
 
 t1 = DummyOperator(task_id='task1', dag=dag)
 t2 = DummyOperator(task_id='task2', dag=dag)
