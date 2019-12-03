@@ -1,15 +1,17 @@
 import io
 import sys
 from pyspark.sql import SparkSession
+from pyspark.sql.functions import col, datediff
+from pyspark.sql import functions as F
 
 
-def process(spark, input_path, target_path):
-    print("You code here.") #TODO YOUR CODE
+def process(spark, input_file, target_path):
+    # TODO Ваш код
 
 
 def main(argv):
     input_path = argv[0]
-    print("Input path: " + input_path)
+    print("Input path to file: " + input_path)
     target_path = argv[1]
     print("Target path: " + target_path)
     spark = _spark_session()
