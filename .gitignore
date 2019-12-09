@@ -23,5 +23,8 @@
 hs_err_pid*
 .idea
 !/Week2/docker-hadoop/tmp/job/mr-wordcount.jar
+!/Week5/SparkML/spark-practice/cat_dog/scala-logging_2.11-3.9.2.jar
+!/Week5/SparkML/spark-practice/cat_dog/tensorframes-0.6.0-s_2.11.jar
+!/Week5/SparkML/spark-practice/cat_dog/cat_dog.zip
 /Week1/Postgres/container-data/postgres/data/
 /venv/
