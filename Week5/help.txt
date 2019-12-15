@@ -1,0 +1,5 @@
+Для работы необходимы:
+1) Python 3.X+
+2) Jupyter Notebook
+3) PySpark
+pip install pyspark

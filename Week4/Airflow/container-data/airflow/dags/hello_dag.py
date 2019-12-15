@@ -10,7 +10,7 @@ def print_1():
 
 
 def print_2():
-    raise AirflowException('Oops!')
+    #raise AirflowException('Oops!') #Uncomment to make error
     return 'Step 2'
 
 
@@ -32,8 +32,8 @@ step2 = PythonOperator(task_id='step2', python_callable=print_2, dag=dag)
 step3 = PythonOperator(task_id='step3', python_callable=print_3, dag=dag)
 hello_operator = PythonOperator(task_id='hello_task',
                                 python_callable=print_hello,
-                                dag=dag,
-                                trigger_rule=TriggerRule.ONE_SUCCESS)
+                                #trigger_rule=TriggerRule.ONE_SUCCESS, #Uncomment to skip error
+                                dag=dag)
 
 step1 >> [step2, step3]
 step2 >> hello_operator
