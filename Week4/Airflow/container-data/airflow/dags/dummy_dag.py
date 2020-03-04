@@ -4,7 +4,7 @@ from airflow.operators.dummy_operator import DummyOperator
 
 
 dag = DAG(dag_id='dummy-dag',
-          start_date=datetime(2019, 11, 30))
+          start_date=datetime(2020, 3, 10))
 
 t1 = DummyOperator(task_id='task1', dag=dag)
 t2 = DummyOperator(task_id='task2', dag=dag)

@@ -2,7 +2,7 @@ version: "3"
 
 services:
   namenode:
-    image: bde2020/hadoop-namenode:2.0.0-hadoop3.1.3-java8
+    image: bde2020/hadoop-namenode:latest
     container_name: namenode
     ports:
       - 9870:9870
@@ -19,7 +19,7 @@ services:
       - ./hadoop.env
 
   datanode:
-    image: bde2020/hadoop-datanode:2.0.0-hadoop3.1.3-java8
+    image: bde2020/hadoop-datanode:latest
     container_name: datanode
     volumes:
       - hadoop_datanode:/hadoop/dfs/data
@@ -29,7 +29,7 @@ services:
       - ./hadoop.env
 
   resourcemanager:
-    image: bde2020/hadoop-resourcemanager:2.0.0-hadoop3.1.3-java8
+    image: bde2020/hadoop-resourcemanager:latest
     container_name: resourcemanager
     ports:
       - 8088:8088
@@ -39,7 +39,7 @@ services:
       - ./hadoop.env
 
   nodemanager1:
-    image: bde2020/hadoop-nodemanager:2.0.0-hadoop3.1.3-java8
+    image: bde2020/hadoop-nodemanager:latest
     container_name: nodemanager
     environment:
       SERVICE_PRECONDITION: "namenode:9870 datanode:9864 resourcemanager:8088"
@@ -47,7 +47,7 @@ services:
       - ./hadoop.env
 
   historyserver:
-    image: bde2020/hadoop-historyserver:2.0.0-hadoop3.1.3-java8
+    image: bde2020/hadoop-historyserver:latest
     container_name: historyserver
     environment:
       SERVICE_PRECONDITION: "namenode:9870 datanode:9864 resourcemanager:8088"

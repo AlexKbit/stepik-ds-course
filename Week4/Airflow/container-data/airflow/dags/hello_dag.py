@@ -23,7 +23,7 @@ def print_hello():
 
 
 dag = DAG('hello-world-dag',
-          start_date=datetime(2019, 11, 30),
+          start_date=datetime(2020, 3, 10),
           description='Hello world example',
           schedule_interval='*/2 * * * *')
 
