@@ -37,7 +37,7 @@ def upload2(**ctx):
 
 
 dag = DAG(dag_id='calculation-parallel-dag',
-          start_date=datetime(2020, 3, 10),
+          start_date=datetime(2020, 3, 30),
           schedule_interval='@once')
 
 load_task = PythonOperator(task_id='load_task',

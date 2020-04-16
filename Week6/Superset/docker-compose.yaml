@@ -1,0 +1,49 @@
+version: '3'
+services:
+  redis:
+    image: redis:3.2
+    restart: always
+    ports:
+      - 6379:6379
+    volumes:
+      - redis:/data
+  mysql:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    ports:
+      - 3306:3306
+    volumes:
+      - mysql:/var/lib/mysql
+  superset:
+    image: abhioncbr/docker-superset:${SUPERSET_VERSION}
+    restart: always
+    environment:
+      ADMIN_USERNAME: admin
+      ADMIN_PWD: superset
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASS: ${MYSQL_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_HOST: ${MYSQL_HOST}
+      MYSQL_PORT: ${MYSQL_PORT}
+      REDIS_HOST: ${REDIS_HOST}
+      REDIS_PORT: ${REDIS_PORT}
+      SUPERSET_ENV: ${SUPERSET_ENV}
+    user: root:root
+    ports:
+      - 8088:8088
+      - 5555:5555
+    depends_on:
+      - mysql
+      - redis
+    volumes:
+      - ../config/:/home/superset/config/
+volumes:
+  mysql:
+    external: false
+  redis:
+    external: false

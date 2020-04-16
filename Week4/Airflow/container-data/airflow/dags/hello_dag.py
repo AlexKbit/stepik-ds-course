@@ -23,9 +23,9 @@ def print_hello():
 
 
 dag = DAG('hello-world-dag',
-          start_date=datetime(2020, 3, 10),
+          start_date=datetime(2020, 3, 30),
           description='Hello world example',
-          schedule_interval='*/2 * * * *')
+          schedule_interval='@once')
 
 step1 = PythonOperator(task_id='step1', python_callable=print_1, dag=dag)
 step2 = PythonOperator(task_id='step2', python_callable=print_2, dag=dag)
