@@ -9,6 +9,7 @@ services:
       POSTGRES_PASSWORD: admin
       POSTGRES_DB: course
       POSTGRES_USER: admin
+      PGDATA: /tmp
     volumes:
     - ./container-data/postgres/data:/var/lib/postgresql/data
     - ./container-data/postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
