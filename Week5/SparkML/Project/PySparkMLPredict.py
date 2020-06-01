@@ -4,8 +4,8 @@ import sys
 from pyspark.ml import PipelineModel
 from pyspark.sql import SparkSession
 
-
-LR_MODEL = 'lr_model'
+# Используйте как путь откуда загрузить модель
+MODEL_PATH = 'spark_ml_model'
 
 
 def process(spark, input_file, output_file):
