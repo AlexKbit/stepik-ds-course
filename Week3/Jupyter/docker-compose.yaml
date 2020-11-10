@@ -1,0 +1,10 @@
+version: '3'
+services:
+  jupyter-pyspark:
+    image: jupyter/pyspark-notebook:latest
+    restart: always
+    ports:
+    - 8888:8888
+    - 4040:4040
+    volumes:
+    - ./notebooks:/home/jovyan
