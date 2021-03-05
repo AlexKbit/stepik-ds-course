@@ -1,7 +1,7 @@
 version: '3'
 services:
   jupyter-pyspark:
-    image: jupyter/pyspark-notebook:latest
+    image: jupyter/pyspark-notebook:862de146632b
     restart: always
     ports:
     - 8888:8888
