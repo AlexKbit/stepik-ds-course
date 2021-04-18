@@ -28,3 +28,8 @@ hs_err_pid*
 !/Week5/SparkML/spark-practice/cat_dog/cat_dog.zip
 /Week1/Postgres/container-data/postgres/data/
 /venv/
+.cache/
+.ipynb_checkpoints/
+.ipython/
+.jupyter/
+.local/

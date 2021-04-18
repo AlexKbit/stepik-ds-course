@@ -1,7 +1,8 @@
 version: '3'
 services:
   jupyter-pyspark:
-    image: jupyter/pyspark-notebook:862de146632b
+    image: jupyter/pyspark-notebook:4d9c9bd9ced0
+    command: start.sh jupyter notebook --NotebookApp.token=''
     restart: always
     ports:
     - 8888:8888
