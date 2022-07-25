@@ -1,0 +1,3 @@
+Master UI: http://localhost:8080/
+spark-submit --master local --deploy-mode client PySparkJob.py
+spark-submit --master spark://localhost:7077 --deploy-mode client PySparkJob.py

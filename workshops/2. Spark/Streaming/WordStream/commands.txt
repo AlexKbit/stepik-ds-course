@@ -1,0 +1,20 @@
+spark-submit --packages org.apache.spark:spark-sql-kafka-0-10_2.11:2.4.4 --master local[*] --deploy-mode client WordStream.py > log.txt
+
+
+# Скачать Кафку тут
+# https://kafka.apache.org/downloads (version 2.8)
+
+#Kafka
+kafka-topics --create --bootstrap-server localhost:9092,localhost:9093,localhost:9094 --replication-factor 1 --partitions 1 --topic words
+
+kafka-console-consumer --bootstrap-server localhost:9092,localhost:9093,localhost:9094 --topic words
+
+kafka-console-producer --broker-list localhost:9092,localhost:9093,localhost:9094 --topic words
+
+
+#Kafka sh
+./kafka-topics.sh --create --bootstrap-server localhost:9092,localhost:9093,localhost:9094 --replication-factor 1 --partitions 1 --topic words
+
+./kafka-console-consumer.sh --bootstrap-server localhost:9092,localhost:9093,localhost:9094 --topic words
+
+./kafka-console-producer.sh --broker-list localhost:9092,localhost:9093,localhost:9094 --topic words

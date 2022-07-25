@@ -7,3 +7,4 @@
 * Week4 - Workflow/Airflow
 * Week5 - SparkML
 * Week6 - BI/Superset
+* Workshops
